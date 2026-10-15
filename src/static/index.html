@@ -8,6 +8,11 @@
   </head>
   <body>
     <header>
+      <div class="header-account">
+        <span id="teacher-status">Student view</span>
+        <button id="teacher-login-button" type="button">Teacher login</button>
+        <button id="teacher-logout-button" class="hidden" type="button">Log out</button>
+      </div>
       <h1>Mergington High School</h1>
       <h2>Extracurricular Activities</h2>
     </header>
@@ -22,8 +27,11 @@
       </section>
 
       <section id="signup-container">
-        <h3>Sign Up for an Activity</h3>
-        <form id="signup-form">
+        <h3>Manage Activity Registrations</h3>
+        <p id="teacher-login-prompt">
+          Teachers must sign in to register or unregister students.
+        </p>
+        <form id="signup-form" class="hidden">
           <div class="form-group">
             <label for="email">Student Email:</label>
             <input type="email" id="email" required placeholder="your-email@mergington.edu" />
@@ -40,6 +48,25 @@
         <div id="message" class="hidden"></div>
       </section>
     </main>
+
+    <dialog id="teacher-login-dialog" aria-labelledby="teacher-login-title">
+      <form id="teacher-login-form">
+        <h2 id="teacher-login-title">Teacher login</h2>
+        <div class="form-group">
+          <label for="teacher-username">Username:</label>
+          <input id="teacher-username" name="username" autocomplete="username" required />
+        </div>
+        <div class="form-group">
+          <label for="teacher-password">Password:</label>
+          <input id="teacher-password" name="password" type="password" autocomplete="current-password" required />
+        </div>
+        <p id="teacher-login-error" class="error hidden" role="alert"></p>
+        <div class="dialog-actions">
+          <button type="button" id="teacher-login-cancel" class="secondary-button">Cancel</button>
+          <button type="submit">Sign in</button>
+        </div>
+      </form>
+    </dialog>
 
     <footer>
       <p>&copy; 2026 Mergington High School</p>
